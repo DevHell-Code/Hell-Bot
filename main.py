@@ -7,6 +7,8 @@ import random
 import asyncio
 import os
 from keep_alive import keep_alive
-bot = commands.Bot(prefix="$")
+intents = discord.Intents.all()
+bot = commands.Bot(command_prefix="$",intents=intents)
+slash = SlashCommand(bot, sync_commands=True)
 
 bot.run(os.getenv("token"))
