@@ -7,6 +7,6 @@ import random
 import asyncio
 import os
 from keep_alive import keep_alive
-
+bot = commands.Bot(prefix="$")
 
 bot.run(os.getenv("token"))
