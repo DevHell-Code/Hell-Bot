@@ -18,7 +18,7 @@ def randomcolor():
     return random.randint(0x000000,0xffffff)
 @bot.event
 async def on_ready():
-    await bot.change_presence(activity=discord.Streaming(name="$도움",url="https://www.twitch.tv/Hell-Bot"))
+    await bot.change_presence(activity=discord.Gaming("헬월이 1.0.0 - $"))
     print(f'{bot.user.name} 준비 끝!')
 @bot.command(name="prefix")
 async def _prefix(ctx, new_prefix):
