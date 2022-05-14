@@ -24,6 +24,6 @@ async def on_ready():
 async def _prefix(ctx, new_prefix):
     prefixList[str(ctx.author.id)] = new_prefix
     write('prefixes',prefixList)
-    await ctx.send(embed=discord.Embed(title='완료!',description=f"프리픽스가 {new_prefix}로 설정되었습니다!",color=discord.Color.green()))
+    await ctx.send(embed=discord.Embed(title='접두어 변경!',description=f"접두오가 {new_prefix}로 설정되었습니다!"))
                    
 bot.run(os.getenv("token"))
