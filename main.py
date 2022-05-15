@@ -3,6 +3,7 @@ import discord
 from discord.ext import commands
 import os
 import random
+import re
 from keep_alive import keep_alive
 
 # 봇 변수 설정
@@ -17,7 +18,55 @@ async def on_ready():
 
 def embed(title,description,color=discord.Color.purple()):
     return discord.Embed(title=title,description=description,color=color)
-
+@bot.listen()
+async def on_command_error(ctx, error):
+	print(error)
+	m = re.search(r'You are on cooldown. Try again in (.*)s', str(error))
+	if m:
+		asdf = m.groups()[0]
+		embed = discord.Embed(
+		    title="잠시만요!",
+		    description=f"쿨타임에 걸렸어요! 이 명령어를 {asdf}초 후에 다시 사용하실 수 있어요!")
+		await ctx.message.reply(embed=embed)
+		return
+	else:
+		m = re.search(r'Command "(.*)" is not found', str(error))
+		if m:
+			asdf = m.groups()[0]
+			embed = discord.Embed(
+			    title="잠시만요!",
+			    description=
+			    f"이 명령어를 사용할 수 없어요! `={asdf}`는 없는 명령어에요! 다른 명령어로 변경됬을 수도 있으니 `=help`로 모든 명령어 목록을 보세요!"
+			)
+			await ctx.message.reply(embed=embed)
+			return
+		else:
+			m = re.search(r'User "(.*)" not found.', str(error))
+			if m:
+				asdf = m.groups()[0]
+				embed = discord.Embed(
+				    title="잠시만요!",
+				    description=
+				    f"이 명령어를 사용할 수 없어요! `{asdf}`는 없는 사용자에요! 사용자 멘션이나 사용자의 풀 닉네임을 제시해주세요!"
+				)
+				await ctx.message.reply(embed=embed)
+				return
+			elif str(error) == "This command can only be used in private messages.":
+				embed = discord.Embed(
+				    title="잠시만요!",
+				    description=
+				    f"이 명령어를 사용할 수 없어요! 이 명령어는 제 DM으로만 사용할 수 있어요! 혹시 모르니 DM을 보내드릴게요!"
+				)				
+				await ctx.message.reply(embed=embed)
+				await ctx.author.send("사용할 수 없던 명령어를 이곳, 제 DM에서 쳐보세요. 서버 채팅에서 친다면 누가 사용자님의 개인정보를 훔쳐갈지도 몰라요! :eyes:")
+			else:
+				embed = discord.Embed(
+				    title="잠시만요!",
+				    description=
+				    f"이 명령어를 사용할 수 없어요! 발생한 오류는 다음과 같아요! \n\n```{str(error)}```"
+				)
+				await ctx.message.reply(embed=embed)
+				return
 # 정보
 @bot.command()
 async def 정보(ctx):
