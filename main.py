@@ -1,9 +1,6 @@
 import discord
 from discord.ext import commands
-import random
-import asyncio
 import os
-import json
 from keep_alive import keep_alive
 
 bot = commands.Bot(command_prefix='$')
@@ -11,6 +8,10 @@ bot = commands.Bot(command_prefix='$')
 @bot.event
 async def on_ready():
     await bot.change_presence()
-    print(f'{bot.user.name} 준비 끝!')
+    print(f"{bot.user.name} Login successful!")
+
+@bot.command
+async def 정보(ctx):
+    await ctx.send(embed=discord.Embed(title='봇 정보', description='헬월이 1.0.0'))
 
 bot.run(os.getenv("token"))
