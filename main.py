@@ -1,4 +1,4 @@
-# 필요 모듈 불러오기
+''# 필요 모듈 불러오기
 import discord
 from discord.ext import commands
 import os
@@ -21,8 +21,12 @@ def embed(title,description,color=discord.Color.purple()):
 # 정보 커멘드
 @bot.command()
 async def 정보(ctx):
-    await ctx.send(embed=discord.Embed(title='봇 정보', description='헬월이 1.0.0'))
+    await ctx.send(embed=embed('정보','헬월이 버전 1.0.0 \n Made By Dev HellCode, Github: https://github.com/DevHell-Code/Hell-Bot'))
 
+@bot.command()
+async def 크레딧(ctx):
+    await ctx.send(embed=embed('크레딧'))
+    
 # 동작
 keep_alive()
 bot.run(os.getenv("token"))
