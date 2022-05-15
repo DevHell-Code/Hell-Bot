@@ -25,7 +25,7 @@ async def 정보(ctx):
 
 @bot.command()
 async def 크레딧(ctx):
-    await ctx.send(embed=embed('크레딧'))
+    await ctx.send(embed=embed('크레딧', 'Dev HellCode \n froggal(KeySpace), hminkoo10(Kongryeong)'))
     
 # 동작
 keep_alive()
