@@ -18,12 +18,12 @@ async def on_ready():
 def embed(title,description,color=discord.Color.purple()):
     return discord.Embed(title=title,description=description,color=color)
 
-# 정보 커멘드
+# 정보
 @bot.command()
 async def 정보(ctx):
     await ctx.send(embed=embed('정보','헬월이 버전 1.0.0 \n Made By Dev HellCode, Github: https://github.com/DevHell-Code/Hell-Bot'))
 
-# 크레딧 커멘드
+# 크레딧
 @bot.command()
 async def 크레딧(ctx):
     await ctx.send(embed=embed('크레딧', 'Dev HellCode \n froggal(KeySpace), hminkoo10(Kongryeong)'))
