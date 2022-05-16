@@ -81,7 +81,7 @@ async def 크레딧(ctx):
 @bot.command()
 async def 주사위(ctx):
   dice = 1, 2, 3, 4, 5, 6
-  await ctx.send(embed=embed('주사위', f'||{dice}||'))
+  await ctx.send(embed=embed('주사위', f'||{random.choice(dice)}||'))
   
 # 동작
 keep_alive()
