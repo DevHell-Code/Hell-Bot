@@ -1,4 +1,4 @@
-''# 필요 모듈 불러오기
+# 필요 모듈 불러오기
 import discord
 from discord.ext import commands
 import os
