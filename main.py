@@ -91,10 +91,9 @@ async def 주사위(ctx):
 # 비속어 삭제
 @bot.event
 async def on_message(message):
-    print(korcen.check(message.content))
     if korcen.check(message.content):
         await message.delete()
-        await message.channel.send(embed=embed('비속어 삭제','By Korcen (https://github.com/Tanat05/korcen/blob/main/example/discord.py)'))
+        await message.channel.send(embed=embed('비속어 삭제','By (Korcen) [https://github.com/Tanat05/korcen/blob/main/example/discord.py]'))
 # 동작
 keep_alive()
 bot.run(os.getenv("token"))
