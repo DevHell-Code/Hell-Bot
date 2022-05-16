@@ -10,6 +10,7 @@ from keep_alive import keep_alive
 # 봇 변수 설정
 intents = discord.Intents.all()
 bot = commands.Bot(command_prefix='$',intents=intents)
+korcen = korcen.korcen()
 
 # 봇 준비 로그
 @bot.event
