@@ -4,6 +4,7 @@ from discord.ext import commands
 import os
 import random
 import re
+from korcen import korcen
 from keep_alive import keep_alive
 
 # 봇 변수 설정
@@ -16,8 +17,11 @@ async def on_ready():
     await bot.change_presence(status=discord.Status.online, activity=discord.Game(name=f"$도움 | {str(len(bot.guilds))}개의 서버와 함께"))
     print(f"{bot.user.name} Login successful!")
 
+# 임배드 함수
 def embed(title,description,color=discord.Color.purple()):
     return discord.Embed(title=title,description=description,color=color)
+
+# 애러 핸들링
 @bot.listen()
 async def on_command_error(ctx, error):
 	print(error)
@@ -36,7 +40,7 @@ async def on_command_error(ctx, error):
 			embed = discord.Embed(
 			    title="잠시만요!",
 			    description=
-			    f"이 명령어를 사용할 수 없어요! `={asdf}`는 없는 명령어에요! 다른 명령어로 변경됬을 수도 있으니 `=help`로 모든 명령어 목록을 보세요!"
+			    f"이 명령어를 사용할 수 없어요! `={asdf}`는 없는 명령어에요! 다른 명령어로 변경됐 수도 있으니 `=help`로 모든 명령어 목록을 보세요!"
 			)
 			await ctx.message.reply(embed=embed)
 			return
@@ -82,7 +86,14 @@ async def 크레딧(ctx):
 async def 주사위(ctx):
   dice = 1, 2, 3, 4, 5, 6
   await ctx.send(embed=embed('주사위', f'||{random.choice(dice)}||'))
-  
+
+# 비속어 삭제
+@bot.event
+async def on_message(message):
+    print(korcen.check(message.content))
+    if korcen.check(message.content):
+        await message.delete()
+        await message.channel.send(embed=embed('비속어 삭제','By Korcen (https://github.com/Tanat05/korcen/blob/main/example/discord.py)'))
 # 동작
 keep_alive()
 bot.run(os.getenv("token"))
