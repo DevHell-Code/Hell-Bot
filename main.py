@@ -24,7 +24,7 @@ def embed(title,description,color=discord.Color.purple()):
     return discord.Embed(title=title,description=description,color=color)
 
 # 애러 핸들링
-@bot.listen()
+#@bot.listen()
 async def on_command_error(ctx, error):
 	print(error)
 	m = re.search(r'You are on cooldown. Try again in (.*)s', str(error))
@@ -88,27 +88,6 @@ async def 크레딧(ctx):
 async def 주사위(ctx):
   dice = 1, 2, 3, 4, 5, 6
   await ctx.send(embed=embed('주사위', f'||{random.choice(dice)}||'))
-
-@bot.command()
-async def 비속어검열(ctx):
-    try:
-        if db["korcen"][ctx.guild.id] == True:
-            db["korcen"][ctx.guild.id] = False
-            await ctx.send(embed=embed("완료","비속어 검열을 사용하지 않음",discord.Color.red()))
-        elif db["korcen"][ctx.guild.id] == False:
-            db["korcen"][ctx.guild.id] = True
-            await ctx.send(embed=embed("완료","비속어 검열이 사용 설정됌",discord.Color.red()))
-    except:
-        db["korcen"][ctx.guild.id] = True
-        await ctx.send(embed=embed("완료","비속어 검열이 사용 설정됌",discord.Color.red()))
-# 비속어 삭제
-@bot.listen
-async def on_message(message):
-    if db["korcen"][message.guild.id] == False:
-        return
-    if korcen.check(message.content):
-        await message.delete()
-        await message.channel.send(embed=embed('비속어 삭제','By [Korcen](https://github.com/Tanat05/korcen/blob/main/example/discord.py)'))
 # 동작
 keep_alive()
-bot.run(os.getenv("token"))
+bot.run(os.getenv("token-beta"))
