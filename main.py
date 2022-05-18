@@ -12,7 +12,6 @@ from keep_alive import keep_alive
 intents = discord.Intents.all()
 bot = commands.Bot(command_prefix='$',intents=intents)
 korcen = korcen.korcen()
-
 # 봇 준비 로그
 @bot.event
 async def on_ready():
@@ -20,11 +19,11 @@ async def on_ready():
     print(f"{bot.user.name} Login successful!")
 
 # 임배드 함수
-def embed(title,description,color=discord.Color.purple()):
+def embed(title,description,color=random.randont(0x000000,0xFFFFFF)):
     return discord.Embed(title=title,description=description,color=color)
 
 # 애러 핸들링
-#@bot.listen()
+# @bot.listen()
 async def on_command_error(ctx, error):
 	print(error)
 	m = re.search(r'You are on cooldown. Try again in (.*)s', str(error))
@@ -88,6 +87,40 @@ async def 크레딧(ctx):
 async def 주사위(ctx):
   dice = 1, 2, 3, 4, 5, 6
   await ctx.send(embed=embed('주사위', f'||{random.choice(dice)}||'))
+
+# 가위바위보
+@bot.command()
+async def 가위바위보(ctx, rsp):
+  rsps = '가위', '바위', '보'
+  rspchoice = random.choice(rsps)
+  if rspchoice == '가위':
+    if rsp == '가위':
+      await ctx.send(embed=embed('가위바위보', f'사용자가 낸 것: {rsp} \n 헬월이가 낸 것: {rspchoice} \n 비겼네요!'))
+    elif rsp == '바위':
+      await ctx.send(embed=embed('가위바위보', f'사용자가 낸 것: {rsp} \n 헬월이가 낸 것: {rspchoice} \n 제가 졌네요!'))
+    elif rsp == '보':
+      await ctx.send(embed=embed('가위바위보', f'사용자가 낸 것: {rsp} \n 헬월이가 낸 것: {rspchoice} \n 제가 이겼네요!'))
+    else :
+      await ctx.send(embed=embed('Error in \'가위바위보\'', '가위, 바위, 보 중 내주세요! 그렇지 않으면 헬월이가 인식하지 못해요 ㅠㅠ'))
+  if rspchoice == '바위':
+    if rsp == '가위':
+      await ctx.send(embed=embed('가위바위보', f'사용자가 낸 것: {rsp} \n 헬월이가 낸 것: {rspchoice} \n 제가 이겼네요!'))
+    elif rsp == '바위':
+      await ctx.send(embed=embed('가위바위보', f'사용자가 낸 것: {rsp} \n 헬월이가 낸 것: {rspchoice} \n 비겼네요!'))
+    elif rsp == '보':
+      await ctx.send(embed=embed('가위바위보', f'사용자가 낸 것: {rsp} \n 헬월이가 낸 것: {rspchoice} \n 제가 졌네요!'))
+    else :
+      await ctx.send(embed=embed('Error in \'가위바위보\'', '가위, 바위, 보 중 내주세요! 그렇지 않으면 헬월이가 인식하지 못해요 ㅠㅠ'))
+  if rspchoice == '보':
+    if rsp == '가위':
+      await ctx.send(embed=embed('가위바위보', f'사용자가 낸 것: {rsp} \n 헬월이가 낸 것: {rspchoice} \n 제가 졌네요!'))
+    elif rsp == '바위':
+      await ctx.send(embed=embed('가위바위보', f'사용자가 낸 것: {rsp} \n 헬월이가 낸 것: {rspchoice} \n 제가 이겼네요!'))
+    elif rsp == '보':
+      await ctx.send(embed=embed('가위바위보', f'사용자가 낸 것: {rsp} \n 헬월이가 낸 것: {rspchoice} \n 비겼네요!'))
+    else :
+      await ctx.send(embed=embed('Error in \'가위바위보\'', '가위, 바위, 보 중 내주세요! 그렇지 않으면 헬월이가 인식하지 못해요 ㅠㅠ'))
+      
 # 동작
 keep_alive()
 bot.run(os.getenv("token-beta"))
