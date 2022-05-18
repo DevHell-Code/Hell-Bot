@@ -19,7 +19,7 @@ async def on_ready():
     print(f"{bot.user.name} Login successful!")
 
 # 임배드 함수
-def embed(title,description,color=random.randont(0x000000,0xFFFFFF)):
+def embed(title,description,color=discord.Color.purple()):
     return discord.Embed(title=title,description=description,color=color)
 
 # 애러 핸들링
