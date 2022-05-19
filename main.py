@@ -5,11 +5,21 @@ import os
 import random
 import re
 from replit import db
+import json
 from keep_alive import keep_alive
+
+# 커스텀 접두어 - 기본 $
+def write(file, tup):
+    with open(f"{file}.json", "w+", encoding='utf-8-sig') as f:
+        json_string = json.dump(tup, f, indent=2, ensure_ascii=False)
+jstring = open("prefixes.json", "r", encoding='utf-8-sig').read()
+prefixList = json.loads(jstring)
+async def prefix(bot, message):
+    return prefixList.get(str(message.author.id), ",")
 
 # 봇 변수 설정
 intents = discord.Intents.all()
-bot = commands.Bot(command_prefix='$',intents=intents)
+bot = commands.Bot(command_prefix=prefix,intents=intents)
 
 # 봇 준비 로그
 @bot.event
@@ -76,6 +86,13 @@ async def on_command_error(ctx, error):
 @bot.listen()
 async def on_guild_join(guild):
     await guild.owner.send(f'`{bot.user.name}`를 {guild.name}에 초대해주셔서 감사드립니다!\n앞으로 {bot.user.name}는 더 발전하겠습니다. \n https://koreanbots.dev/bots/928597866870616075 여기서 하트추가를 눌러주시면 감사하겠습니다!')
+
+# 접두어 변경 명령어
+@bot.command(name="prefix")
+async def _prefix(ctx, new_prefix):
+    prefixList[str(ctx.author.id)] = new_prefix
+    write('prefixes',prefixList)
+    await ctx.send(embed=discord.Embed(title='접두어 변경!',description=f"접두어가 {new_prefix}로 설정되었습니다!"))
   
 # 정보
 @bot.command()
