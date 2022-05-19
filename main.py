@@ -3,15 +3,14 @@ import discord
 from discord.ext import commands
 import os
 import random
-import re
-from korcen import korcen
+import r
 from replit import db
 from keep_alive import keep_alive
 
 # 봇 변수 설정
 intents = discord.Intents.all()
 bot = commands.Bot(command_prefix='$',intents=intents)
-korcen = korcen.korcen()
+
 # 봇 준비 로그
 @bot.event
 async def on_ready():
