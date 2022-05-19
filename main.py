@@ -3,7 +3,7 @@ import discord
 from discord.ext import commands
 import os
 import random
-import r
+import re
 from replit import db
 from keep_alive import keep_alive
 
