@@ -79,6 +79,7 @@ async def on_command_error(ctx, error):
 async def on_guild_join(guild):
     await guild.owner.send(f'`{bot.user.name}`를 {guild.name}에 초대해주셔서 감사드립니다!\n앞으로 {bot.user.name}는 더 발전하겠습니다. \n https://koreanbots.dev/bots/928597866870616075 여기서 하트추가를 눌러주시면 감사하겠습니다!')
 
+# 헬케시 (포인트) 구현해야함
   
 # 정보
 @bot.command()
