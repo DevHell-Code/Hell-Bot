@@ -36,7 +36,6 @@ class Account(commands.Cog):
             return inner_check
         await ctx.reply(embed=embed("진행중","회원가입을 할 비밀번호를 30초 내에 입력 해 주세요! \n입력하신 비밀번호는 안전하게 보관됩니다."))
         msg = await self.bot.wait_for('message', check=check(ctx.author), timeout=30)
-        print(msg.content)
         pwd = cryptocode.encrypt(msg.content, "pw")
         userinf = {f"{dkdlel}":f"{pwd}"}
         dbac.insert_one(userinf)
