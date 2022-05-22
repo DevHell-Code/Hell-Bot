@@ -17,7 +17,7 @@ def embed(title,description,color=random.randint(0x000000,0xFFFFFF)):
 intents = discord.Intents.all()
 bot = commands.Bot(command_prefix='$',intents=intents,owner_ids = [906351533426356226,712290125505363980])
 
-#코그 로드
+# 코그 로드
 for file in os.listdir("bot"):
     if file.endswith(".py"):
         bot.load_extension(f"bot.{file[:-3]}")
@@ -33,6 +33,7 @@ async def on_ready():
         await bot.change_presence(status=discord.Status.online, activity=discord.Game(name=f"Ver. Alpha 1.0 | {str(len(bot.guilds))}개의 서버와 함께"))
         await asyncio.sleep(5)
 
+# Error
 @bot.listen()
 async def on_command_error(ctx, error):
 	print(error)
@@ -176,6 +177,10 @@ async def load(ctx, module="all"):
     except:
         await ctx.reply(embed=embed("로드 실패 <a:no:977162736502976513>","모듈 이름을 다시 확인 해 주세요"))
       
-# 동작
+# Keep alive 서버 on
 keep_alive()
+# 토큰 이용 봇 구동
+# token: 정식버전
+# token-beta: 배타버
+# 수정: 옆의 자물쇠 클릭. .env임
 bot.run(os.getenv("token-beta"))
