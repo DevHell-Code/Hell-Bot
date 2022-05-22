@@ -29,7 +29,7 @@ class Admin(commands.Cog):
         self.bot = bot
 
     @commands.command(name="eval")
-    @commands.is_owner()
+    @commands.dm_only()
     async def eval_fn(self, ctx, *, cmd):
         
         fn_name = "_eval_expr"
