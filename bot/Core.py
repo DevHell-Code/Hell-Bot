@@ -16,12 +16,16 @@ class Core(commands.Cog):
     # 정보
     @commands.command()
     async def 정보(self, ctx):
-        await ctx.reply(embed=embed('정보','헬월이 버전 1.0.0 \n Made By Dev HellCode, Github: https://github.com/DevHell-Code/Hell-Bot'))
+        await ctx.reply(embed=embed('정보','Ver. Alpha 1.0 \n Made By Dev HellCode, Github: https://github.com/DevHell-Code/Hell-Bot'))
     
     # 크레딧
     @commands.command()
     async def 크레딧(self, ctx):
         await ctx.reply(embed=embed('크레딧', 'Dev HellCode \n froggal(KeySpace), hminkoo10(Kongryeong)'))
 
+    # 연락
+    @commands.command()
+    async def 연락(self,ctx):
+      await ctx.send(embed=embed('연락처','Dev HellCode\n`froggal`(KeySpace)에게 연락: `Discord: froggal#2188` \n `Email: keyfroggal21k@hellcod.cf` \n `hyminkoo10`(Kongryeong)에게 연락: `Discord: Kongryeong#5252`\n `Email: kongryeong@hellcode.cf`'))
 def setup(bot):
     bot.add_cog(Core(bot))

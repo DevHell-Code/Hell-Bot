@@ -26,8 +26,12 @@ for file in os.listdir("bot"):
 # 봇 준비 로그
 @bot.event
 async def on_ready():
-    await bot.change_presence(status=discord.Status.online, activity=discord.Game(name=f"$도움 | {str(len(bot.guilds))}개의 서버와 함께"))
     print(f"{bot.user.name} Login successful!")
+    while True:
+        await bot.change_presence(status=discord.Status.online, activity=discord.Game(name=f"$도움 | {str(len(bot.guilds))}개의 서버와 함께"))
+        await asyncio.sleep(5)
+        await bot.change_presence(status=discord.Status.online, activity=discord.Game(name=f"Ver. Alpha 1.0 | {str(len(bot.guilds))}개의 서버와 함께"))
+        await asyncio.sleep(5)
 
 @bot.listen()
 async def on_command_error(ctx, error):
