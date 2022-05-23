@@ -30,7 +30,7 @@ async def on_ready():
     while True:
         await bot.change_presence(status=discord.Status.online, activity=discord.Game(name=f"$도움 | {str(len(bot.guilds))}개의 서버와 함께"))
         await asyncio.sleep(5)
-        await bot.change_presence(status=discord.Status.online, activity=discord.Game(name=f"Ver. Alpha 1.0 | {str(len(bot.guilds))}개의 서버와 함께"))
+        await bot.change_presence(status=discord.Status.online, activity=discord.Game(name=f"Ver. INDEV 4.0 | {str(len(bot.guilds))}개의 서버와 함께"))
         await asyncio.sleep(5)
 
 # Error
@@ -181,6 +181,6 @@ async def load(ctx, module="all"):
 keep_alive()
 # 토큰 이용 봇 구동
 # token: 정식버전
-# token-beta: 배타버
+# token-beta: 배타버전
 # 수정: 옆의 자물쇠 클릭. .env임
 bot.run(os.getenv("token-beta"))

@@ -44,7 +44,7 @@ class Account(commands.Cog):
         db[dkdlel] = pwd
         with open(f"db.json", "w+", encoding='utf-8-sig') as f:
             json_string = json.dump(db, f, indent=2, ensure_ascii=False)
-        await ctx.send("회원가입완료")
+        await ctx.reply("회원가입완료")
 
 def setup(bot):
     bot.add_cog(Account(bot))

@@ -29,7 +29,7 @@ class Admin(commands.Cog):
         self.bot = bot
 
     @commands.command(name="eval")
-    @commands.dm_only()
+    @commands.is_owner()
     async def eval_fn(self, ctx, *, cmd):
         
         fn_name = "_eval_expr"
@@ -57,7 +57,7 @@ class Admin(commands.Cog):
         exec(compile(parsed, filename="<ast>", mode="exec"), env)
     
         result = (await eval(f"{fn_name}()", env))
-        await ctx.send(result)
+        await ctx.reply(result)
 
 def setup(bot):
     bot.add_cog(Admin(bot))

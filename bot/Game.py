@@ -17,7 +17,7 @@ class Game(commands.Cog):
     @commands.command()
     async def 주사위(self, ctx):
       dice = 1, 2, 3, 4, 5, 6
-      await ctx.send(embed=embed('주사위', f'||결과는?! {random.choice(dice)} 입니다!||'))
+      await ctx.reply(embed=embed('주사위', f'||결과는?! {random.choice(dice)} 입니다!||'))
     
     # 가위바위보
     @commands.command()
@@ -26,31 +26,31 @@ class Game(commands.Cog):
       rspchoice = random.choice(rsps)
       if rspchoice == '가위':
         if rsp == '가위':
-          await ctx.send(embed=embed('가위바위보', f'사용자가 낸 것: {rsp} \n 헬월이가 낸 것: {rspchoice} \n 비겼네요!'))
+          await ctx.reply(embed=embed('가위바위보', f'사용자가 낸 것: {rsp} \n 헬월이가 낸 것: {rspchoice} \n 비겼네요!'))
         elif rsp == '바위':
-          await ctx.send(embed=embed('가위바위보', f'사용자가 낸 것: {rsp} \n 헬월이가 낸 것: {rspchoice} \n 제가 졌네요!'))
+          await ctx.reply(embed=embed('가위바위보', f'사용자가 낸 것: {rsp} \n 헬월이가 낸 것: {rspchoice} \n 제가 졌네요!'))
         elif rsp == '보':
-          await ctx.send(embed=embed('가위바위보', f'사용자가 낸 것: {rsp} \n 헬월이가 낸 것: {rspchoice} \n 제가 이겼네요!'))
+          await ctx.reply(embed=embed('가위바위보', f'사용자가 낸 것: {rsp} \n 헬월이가 낸 것: {rspchoice} \n 제가 이겼네요!'))
         else :
-          await ctx.send(embed=embed('Error in \'가위바위보\'', '가위, 바위, 보 중 내주세요! 그렇지 않으면 헬월이가 인식하지 못해요 ㅠㅠ'))
+          await ctx.reply(embed=embed('Error in \'가위바위보\'', '가위, 바위, 보 중 내주세요! 그렇지 않으면 헬월이가 인식하지 못해요 ㅠㅠ'))
       if rspchoice == '바위':
         if rsp == '가위':
-          await ctx.send(embed=embed('가위바위보', f'사용자가 낸 것: {rsp} \n 헬월이가 낸 것: {rspchoice} \n 제가 이겼네요!'))
+          await ctx.reply(embed=embed('가위바위보', f'사용자가 낸 것: {rsp} \n 헬월이가 낸 것: {rspchoice} \n 제가 이겼네요!'))
         elif rsp == '바위':
-          await ctx.send(embed=embed('가위바위보', f'사용자가 낸 것: {rsp} \n 헬월이가 낸 것: {rspchoice} \n 비겼네요!'))
+          await ctx.reply(embed=embed('가위바위보', f'사용자가 낸 것: {rsp} \n 헬월이가 낸 것: {rspchoice} \n 비겼네요!'))
         elif rsp == '보':
-          await ctx.send(embed=embed('가위바위보', f'사용자가 낸 것: {rsp} \n 헬월이가 낸 것: {rspchoice} \n 제가 졌네요!'))
+          await ctx.reply(embed=embed('가위바위보', f'사용자가 낸 것: {rsp} \n 헬월이가 낸 것: {rspchoice} \n 제가 졌네요!'))
         else :
-          await ctx.send(embed=embed('Error in \'가위바위보\'', '가위, 바위, 보 중 내주세요! 그렇지 않으면 헬월이가 인식하지 못해요 ㅠㅠ'))
+          await ctx.reply(embed=embed('Error in \'가위바위보\'', '가위, 바위, 보 중 내주세요! 그렇지 않으면 헬월이가 인식하지 못해요 ㅠㅠ'))
       if rspchoice == '보':
         if rsp == '가위':
-          await ctx.send(embed=embed('가위바위보', f'사용자가 낸 것: {rsp} \n 헬월이가 낸 것: {rspchoice} \n 제가 졌네요!'))
+          await ctx.reply(embed=embed('가위바위보', f'사용자가 낸 것: {rsp} \n 헬월이가 낸 것: {rspchoice} \n 제가 졌네요!'))
         elif rsp == '바위':
-          await ctx.send(embed=embed('가위바위보', f'사용자가 낸 것: {rsp} \n 헬월이가 낸 것: {rspchoice} \n 제가 이겼네요!'))
+          await ctx.reply(embed=embed('가위바위보', f'사용자가 낸 것: {rsp} \n 헬월이가 낸 것: {rspchoice} \n 제가 이겼네요!'))
         elif rsp == '보':
-          await ctx.send(embed=embed('가위바위보', f'사용자가 낸 것: {rsp} \n 헬월이가 낸 것: {rspchoice} \n 비겼네요!'))
+          await ctx.reply(embed=embed('가위바위보', f'사용자가 낸 것: {rsp} \n 헬월이가 낸 것: {rspchoice} \n 비겼네요!'))
         else :
-          await ctx.send(embed=embed('Error in \'가위바위보\'', '가위, 바위, 보 중 내주세요! 그렇지 않으면 헬월이가 인식하지 못해요 ㅠㅠ'))
+          await ctx.reply(embed=embed('Error in \'가위바위보\'', '가위, 바위, 보 중 내주세요! 그렇지 않으면 헬월이가 인식하지 못해요 ㅠㅠ'))
 
 def setup(bot):
     bot.add_cog(Game(bot))
