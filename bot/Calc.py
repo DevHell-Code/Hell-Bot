@@ -21,6 +21,9 @@ class Calc(commands.Cog):
       elif type == '곱셈' :
         data = left * right
         await ctx.reply(embed=embed('사칙연산 in 곱셈', f'{left}X{right} = ||{data}||'))
+      elif type == '나눗셈' :
+        data = left / right
+        await ctx.reply(embed=embed('사칙연산 in 곱셈', f'{left}/{right} = ||{data}||'))
 
 
 def setup(bot):
