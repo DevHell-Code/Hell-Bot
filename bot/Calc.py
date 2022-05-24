@@ -15,6 +15,9 @@ class Calc(commands.Cog):
       if type == '덧셈' :
         data = left + right
         await ctx.reply(embed=embed('사칙연산 in 덧셈', f'{left}+{right} = ||{data}||'))
+      elif type == '뺄셈' :
+        data = left - right
+        await ctx.reply(embed=embed('사칙연산 in 뺄셈', f'{left}-{right} = ||{data}||'))
 
 
 def setup(bot):
