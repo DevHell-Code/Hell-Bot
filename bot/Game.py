@@ -4,6 +4,7 @@ import os
 import asyncio
 import random
 import re
+import json
 
 # 임배드 함수
 def embed(title,description,color=random.randint(0x000000,0xFFFFFF)):
@@ -52,5 +53,6 @@ class Game(commands.Cog):
         else :
           await ctx.reply(embed=embed('Error in \'가위바위보\'', '가위, 바위, 보 중 내주세요! 그렇지 않으면 헬월이가 인식하지 못해요 ㅠㅠ'))
 
+        
 def setup(bot):
     bot.add_cog(Game(bot))
