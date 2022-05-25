@@ -18,10 +18,10 @@ intents = discord.Intents.all()
 bot = commands.Bot(command_prefix='$',intents=intents,owner_ids = [906351533426356226,712290125505363980])
 
 # 코그 로드
-for file in os.listdir("commands"):
+for file in os.listdir("bot"):
     if file.endswith(".py"):
-        bot.load_extension(f"commands.{file[:-3]}")
-        print(f"commands.{file[:-3]}가 로드되었습니다")
+        bot.load_extension(f"bot.{file[:-3]}")
+        print(f"bot.{file[:-3]}가 로드되었습니다")
     
 # 봇 준비 로그
 @bot.event
