@@ -14,16 +14,16 @@ class Calc(commands.Cog):
     async def 사칙연산(self, ctx, type, left: int, right: int):
       if type == '덧셈' :
         data = left + right
-        await ctx.reply(embed=embed('사칙연산 in 덧셈', f'{left}+{right} = ||{data}||'))
+        await ctx.reply(embed=embed('사칙연산 in 덧셈', f'{left}+{right} = {data}'))
       elif type == '뺄셈' :
         data = left - right
-        await ctx.reply(embed=embed('사칙연산 in 뺄셈', f'{left}-{right} = ||{data}||'))
+        await ctx.reply(embed=embed('사칙연산 in 뺄셈', f'{left}-{right} = {data}'))
       elif type == '곱셈' :
         data = left * right
-        await ctx.reply(embed=embed('사칙연산 in 곱셈', f'{left}X{right} = ||{data}||'))
+        await ctx.reply(embed=embed('사칙연산 in 곱셈', f'{left}X{right} = {data}'))
       elif type == '나눗셈' :
         data = left / right
-        await ctx.reply(embed=embed('사칙연산 in 곱셈', f'{left}/{right} = ||{data}||'))
+        await ctx.reply(embed=embed('사칙연산 in 곱셈', f'{left}/{right} = {data}'))
 
 
 def setup(bot):

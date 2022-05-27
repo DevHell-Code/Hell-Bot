@@ -20,7 +20,7 @@ class Convenience(commands.Cog):
         img.save("qrcode.png")
         name = "qrcode.png"
         await ctx.reply(file=discord.File(name))
-
+    # 링크 단축
     @commands.command()
     async def 링크단축(self, ctx, link):
         msg = await ctx.reply('링크 단축하는중...')
