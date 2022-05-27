@@ -40,7 +40,7 @@ class Core(commands.Cog):
     # 초대링크생성
     @commands.command()
     async def 초대링크(self, ctx, guildid):
-      await ctx.reply(embed=embed('초대 링크 생성', f'https://discord.com/oauth2/authorize?client_id=928597866870616075&permissions=1&scope=applications.commands%20bot&guild_id={guildid}&disable_guild_select=true&response_type=code'))
+      await ctx.reply(embed=embed('초대 링크 생성', f'[**{guildid} 서버용 초대 링크**](https://discord.com/oauth2/authorize?client_id=928597866870616075&permissions=1&scope=applications.commands%20bot&guild_id={guildid}&disable_guild_select=true&response_type=code)'))
 
 def setup(bot):
     bot.add_cog(Core(bot))
