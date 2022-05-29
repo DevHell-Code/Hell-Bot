@@ -44,7 +44,7 @@ class Account(commands.Cog):
         if dkdlel in acdb:
             await ctx.reply(embed=embed("회원가입 실패","이미 있는 아이디입니다."))
             return
-        if ctx.author.id in acdb.keys()["linkac"]:
+        if ctx.author.id in dict(acdb.keys())["linkac"]:
             await ctx.reply(embed=embed("회원가입 실패","이미 만들어진 아이디가 있습니다."))
             return
         def check(author):

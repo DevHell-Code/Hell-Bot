@@ -5,8 +5,6 @@ import os
 import asyncio
 import random
 import re
-from replit import db
-import json
 from keep_alive import keep_alive
 
 # 임배드 함수
