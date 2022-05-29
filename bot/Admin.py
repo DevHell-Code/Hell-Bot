@@ -30,7 +30,7 @@ class Admin(commands.Cog):
 
     @commands.command(name="eval")
     @commands.is_owner()
-    async def eval_fn(self, ctx, *, pwd, cmd):
+    async def eval_fn(self, ctx, *, cmd):
         fn_name = "_eval_expr"
     
         cmd = cmd.strip("` ")

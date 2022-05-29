@@ -58,5 +58,11 @@ class Account(commands.Cog):
         db["account"] = acdb        
         await ctx.reply(embed=embed("가입 완료",f'가입이 완료되었습니다. 헬월이를 이용해주셔서 감사합니다, {ctx.author}님.'))
 
+    @commands.command()
+    @commands.is_owner()
+    @commands.dm_only()
+    async def DB확인(self, ctx, db):
+      await ctx.reply(acdb[f"{db}"])
+      print(f'봇 소유자의 요청으로 DB 정보가 출력되었습니다. 출력된 DB는 다음과 같습니다: {db}')
 def setup(bot):
     bot.add_cog(Account(bot))
