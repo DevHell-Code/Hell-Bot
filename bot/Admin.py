@@ -30,13 +30,12 @@ class Admin(commands.Cog):
 
     @commands.command(name="eval")
     @commands.is_owner()
-    async def eval_fn(self, ctx, *, cmd):
-        
+    async def eval_fn(self, ctx, *, pwd, cmd):
         fn_name = "_eval_expr"
     
         cmd = cmd.strip("` ")
     
-        # add a layer of indentation
+        # add a layer of indentationㅇ
         cmd = "\n".join(f"    {i}" for i in cmd.splitlines())
     
         # wrap in async def body
