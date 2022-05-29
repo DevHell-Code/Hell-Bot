@@ -6,8 +6,8 @@ import random
 def embed(title,description,color=random.randint(0x000000,0xFFFFFF)):
     return discord.Embed(title=title,description=description,color=color)
 # 각종 사이트 URL
-KOWP = 'https://ko.wikipedia.org/wiki'
-ENWP = 'https://en.wikipedia.org/wiki'
+KOWP = 'https://ko.wikipedia.org/wiki/'
+ENWP = 'https://en.wikipedia.org/wiki/'
 NAVER = 'https://search.naver.com/search.naver?ie=UTF-8&sm=whl_hty&query='
 GOOGLE = 'https://www.google.com/search?q='
 
