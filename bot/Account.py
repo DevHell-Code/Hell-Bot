@@ -61,8 +61,7 @@ class Account(commands.Cog):
     @commands.command()
     @commands.is_owner()
     @commands.dm_only()
-    async def DB확인(self, ctx, db):
-      await ctx.reply(acdb[f"{db}"])
-      print(f'봇 소유자의 요청으로 DB 정보가 출력되었습니다. 출력된 DB는 다음과 같습니다: {db}')
+    async def DB확인(self, ctx, db1):
+      await ctx.reply(db[f"{db1}"])
 def setup(bot):
     bot.add_cog(Account(bot))
