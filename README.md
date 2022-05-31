@@ -11,4 +11,5 @@
 
 # 연락
 - KeySpace - Discord `froggal#2188` or Email `keyfroggal21k@hellcode.cf`
-- Kongryeong - Discord `Kongryeong#5252` or Email `kongryeong@hellcode.cf`
+- Kongryeong - Discord Email `kongryeong@hellcode.cf`
+[![Discord Presence](https://lanyard-profile-readme.vercel.app/api/712290125505363980?theme=light&bg=809ecf&animated=true&hideDiscrim=true&borderRadius=30px&idleMessage=Probably%20doing%20something%20else...)](https://discord.com/users/712290125505363980)
