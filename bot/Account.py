@@ -14,7 +14,6 @@ import time
 
 a = urllib.request.urlopen("https://dbtest.hminkoo10.repl.co/dburl").read()
 db = replit.Database(a.decode('utf-8'))
-db["account"] = {}
 acdb = {}
 # 임배드 함수
 def embed(title,description,color=random.randint(0x000000,0xFFFFFF)):
@@ -44,9 +43,14 @@ class Account(commands.Cog):
         if dkdlel in acdb:
             await ctx.reply(embed=embed("회원가입 실패","이미 있는 아이디입니다."))
             return
-        if ctx.author.id in dict(acdb.keys())["linkac"]:
-            await ctx.reply(embed=embed("회원가입 실패","이미 만들어진 아이디가 있습니다."))
-            return
+        try:
+            for i in dict(acdb).keys():
+                print(i)
+                if ctx.author.id in dict(i)["linkac"]:
+                    await ctx.reply(embed=embed("회원가입 실패","이미 계정을 소유하고있습니다."))
+                    return
+        except Exception as e:
+            print(e)
         def check(author):
             def inner_check(message):
                 return message.author == author
