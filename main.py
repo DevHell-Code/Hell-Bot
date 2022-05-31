@@ -31,12 +31,7 @@ async def on_ready():
         await bot.change_presence(status=discord.Status.online, activity=discord.Game(name=f"Ver. INDEV 4.0 | {str(len(bot.guilds))}개의 서버와 함께"))
         await asyncio.sleep(5)
 
-# 봇 상메 변경
-@bot.command()
-@bot.is_owner()
-async def 상메변경(ctx, presence):
-  await bot.change_presence(status=discord.Status.online, activity=discord.Game(name=f'{presence} | 다음 재부팅까지 유지됨'))
-  await ctx.reply(embed=embed('상메 변경 완료!', f'{presence}로의 변경이 완료됨.'))
+
 # Error
 @bot.listen()
 async def on_command_error(ctx, error):
