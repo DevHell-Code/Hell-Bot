@@ -19,7 +19,7 @@ acdb = {}
 def embed(title,description,color=random.randint(0x000000,0xFFFFFF)):
     return discord.Embed(title=title,description=description,color=color)
 
-class Account(commands.Cog):
+class Acount(commands.Cog):
     def __init__(self, bot):
         self.bot = bot
     @commands.Cog.listener()
@@ -62,10 +62,5 @@ class Account(commands.Cog):
         db["account"] = acdb        
         await ctx.reply(embed=embed("가입 완료",f'가입이 완료되었습니다. 헬월이를 이용해주셔서 감사합니다, {ctx.author}님.'))
 
-    @commands.command()
-    @commands.is_owner()
-    @commands.dm_only()
-    async def DB확인(self, ctx, db1):
-      await ctx.reply(db[f"{db1}"])
 def setup(bot):
-    bot.add_cog(Account(bot))
+    bot.add_cog(Acount(bot))
