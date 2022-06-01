@@ -34,7 +34,7 @@ class Core(commands.Cog):
     async def 연락(self, ctx):
         await ctx.reply(embed=embed(
             '연락처',
-            'Dev HellCode\n`froggal`(KeySpace)에게 연락: `Discord: froggal#2188` \n `Email: keyfroggal21k@hellcod.cf` \n `hyminkoo10`(Kongryeong)에게 연락: `Discord: Kongryeong#5252`\n `Email: kongryeong@hellcode.cf`'
+            'Dev HellCode\n`froggal`(KeySpace)에게 연락: `Discord: froggal#2188` \n `Email: keyfroggal21k@hellcode.cf` \n `hyminkoo10`(Kongryeong)에게 연락: `Discord: Kongryeong#5252`\n `Email: kongryeong@hellcode.cf`'
         ))
 
 
