@@ -19,7 +19,15 @@ class Game(commands.Cog):
     async def 주사위(self, ctx):
       dice = 1, 2, 3, 4, 5, 6
       await ctx.reply(embed=embed('주사위', f'||결과는?! {random.choice(dice)} 입니다!||'))
-    
+    # 홀짝
+    @commands.command()
+    async def 홀짝(self, ctx, hollans):
+      hollrad = random.choice('홀', '짝')
+      if hollans == hollrad :
+        await ctx.reply(embed=embed('홀짝', f'맞았습니다! \n 내 선택: {hollans} \n 봇의 선택: {hollead}'))
+      else :
+        await ctx.reply(embed=embed('홀짝', f'틀렸습니다! \n 내 선택: {hollans} \n 봇의 선택: {hollead}'))
+      
     # 가위바위보
     @commands.command()
     async def 가위바위보(self, ctx, rsp):
@@ -52,7 +60,6 @@ class Game(commands.Cog):
           await ctx.reply(embed=embed('가위바위보', f'사용자가 낸 것: {rsp} \n 헬월이가 낸 것: {rspchoice} \n 비겼네요!'))
         else :
           await ctx.reply(embed=embed('Error in \'가위바위보\'', '가위, 바위, 보 중 내주세요! 그렇지 않으면 헬월이가 인식하지 못해요 ㅠㅠ'))
-
-        
+      
 def setup(bot):
     bot.add_cog(Game(bot))
