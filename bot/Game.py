@@ -19,14 +19,22 @@ class Game(commands.Cog):
     async def 주사위(self, ctx):
       dice = 1, 2, 3, 4, 5, 6
       await ctx.reply(embed=embed('주사위', f'||결과는?! {random.choice(dice)} 입니다!||'))
+    # 뽑기
+    @commands.command()
+    async def 뽑기(self, ctx, nber: str):
+      rannber = random.choice(['1', '2', '3 '])
+      if nber == rannber :
+        await ctx.reply(embed=embed('뽑기', f'맞았습니다! \n 나의 선택: {nber} \n  봇의 선택: {rannber}', discord.Color.green()))
+      else :
+        await ctx.reply(embed=embed('뽑기', f'틀렸습니다! \n 나의 선택: {nber} \n  봇의 선택: {rannber}', discord.Color.red()))
     # 홀짝
     @commands.command()
     async def 홀짝(self, ctx, hollans):
-      hollrad = random.choice('홀', '짝')
-      if hollans == hollrad :
-        await ctx.reply(embed=embed('홀짝', f'맞았습니다! \n 내 선택: {hollans} \n 봇의 선택: {hollead}'))
-      else :
-        await ctx.reply(embed=embed('홀짝', f'틀렸습니다! \n 내 선택: {hollans} \n 봇의 선택: {hollead}'))
+      hollrad = random.choice(['홀', '짝'])
+      if hollans == hollrad:
+        await ctx.reply(embed=embed('홀짝', f'맞았습니다! \n 내 선택: {hollans} \n 봇의 선택: {hollrad}',discord.Color.green()))
+      else:
+        await ctx.reply(embed=embed('홀짝', f'틀렸습니다! \n 내 선택: {hollans} \n 봇의 선택: {hollrad}',discord.Color.red()))
       
     # 가위바위보
     @commands.command()
