@@ -236,3 +236,4 @@ keep_alive()
 # token-beta: 배타버전
 # 수정: 옆의 자물쇠 클릭. .env임
 bot.run(os.getenv("token-beta"))
+# bot.run(os.getenv("token"))
