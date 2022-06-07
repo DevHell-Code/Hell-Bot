@@ -26,12 +26,6 @@ class Acount(commands.Cog):
     def __init__(self, bot):
         self.bot = bot
 
-    @commands.Cog.listener()
-    async def on_ready(self):
-        global acdb
-        while True:
-            acdb = db["account"]
-            await asyncio.sleep(1)
 
     # 회원가입
     @commands.command()
