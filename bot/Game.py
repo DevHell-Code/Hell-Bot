@@ -106,6 +106,6 @@ class Game(commands.Cog):
                     embed=embed('Error in \'가위바위보\'',
                                 '가위, 바위, 보 중 내주세요! 그렇지 않으면 헬월이가 인식하지 못해요 ㅠㅠ'))
 
-
+  
 def setup(bot):
     bot.add_cog(Game(bot))

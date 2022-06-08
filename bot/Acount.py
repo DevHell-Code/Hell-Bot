@@ -47,6 +47,7 @@ class Acount(commands.Cog):
         if dkdlel in acdb:
             await ctx.reply(embed=embed("회원가입 실패", "이미 있는 아이디입니다."))
             return
+        '''
         try:
             for i in dict(acdb).keys():
                 print(i)
@@ -55,7 +56,7 @@ class Acount(commands.Cog):
                     return
         except Exception as e:
             print(e)
-
+        '''
         def check(author):
             def inner_check(message):
                 return message.author == author
