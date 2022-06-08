@@ -62,7 +62,7 @@ async def on_command_error(ctx, error):
             embed = discord.Embed(
                 title="잠시만요!",
                 description=
-                f"이 명령어를 사용할 수 없어요! `${asdf}`는 없는 명령어에요! 다른 명령어로 변경됐 수도 있으니 `$help`로 모든 명령어 목록을 보세요!"
+                f"이 명령어를 사용할 수 없어요! `${asdf}`는 없는 명령어에요! 다른 명령어로 변경됬을 수도 있으니 `$help`로 모든 명령어 목록을 보세요!"
             )
             await ctx.message.reply(embed=embed)
             return
