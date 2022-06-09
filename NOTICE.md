@@ -83,6 +83,6 @@
     - [ ] 호스팅 바꾸기(오라클 프리티어 등 무료로)
 
 # 업무 담당
-froggal(KeySpace) | 팀장 : 봇 소유, 홈페이지 개발 
+froggal(KeySpace) | 팀장 : 봇 소유, 홈페이지 개발, NOTICE 업데이트, Git 관리
 
-hminkoo10(Kongryeong) | 부팀장 : 나루봇 소유, 봇 개발 담당, Git 관리, 서버 관리, 봇, 웹사이트 호스팅
+hminkoo10(Kongryeong) | 부팀장 : 나루봇 소유, 봇 개발 담당, 서버 관리, 봇 호스팅
