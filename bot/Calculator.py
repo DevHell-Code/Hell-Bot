@@ -9,18 +9,11 @@ def embed(title, description, color=random.randint(0x000000, 0xFFFFFF)):
     return discord.Embed(title=title, description=description, color=color)
 
 
-class Calc(commands.Cog):
+class Calculator(commands.Cog):
     def __init__(self, bot):
         self.bot = bot
 
     # 삼각함수(사인, 코사인, 탄젠트)
-    # 유머
-    @commands.command()
-    async def 삼각함수송(self, ctx):
-        await ctx.reply(embed=embed(
-            '삼각합수송',
-            'r분의 y~ 사인 함수~ r분의 x~ 코사인함수~ x분의 y~ 탄젠트함수~ 정의를 정확하게 알아야지요~ \n https://www.youtube.com/watch?v=bTs0DcMxDT8'
-        ))
 
     # 사인
     @commands.command()
@@ -61,8 +54,8 @@ class Calc(commands.Cog):
         elif type == '나눗셈':
             data = left / right
             await ctx.reply(
-                embed=embed('사칙연산 in 곱셈', f'{left}/{right} = {data}'))
+                embed=embed('사칙연산 in 나눗셈', f'{left}/{right} = {data}'))
 
 
 def setup(bot):
-    bot.add_cog(Calc(bot))
+    bot.add_cog(Calculator(bot))
