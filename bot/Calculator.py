@@ -19,8 +19,7 @@ class Calculator(commands.Cog):
     @commands.command()
     async def 사인(self, ctx, annum: int):
         data = math.sin(annum)
-        await ctx.reply(embed=embed('삼각함수 in 사인', f'{annum}의 사인 값은 {data}입니다.')
-                        )
+        await ctx.reply(embed=embed('삼각함수 in 사인', f'{annum}의 사인 값은 {data}입니다.'))
 
     #코사인
     @commands.command()

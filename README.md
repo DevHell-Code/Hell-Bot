@@ -1,5 +1,5 @@
 # Hell-Bot
-- 초대: https://bit.ly/joinbota
+- 초대: http://hellcode.cf
 
 헬월이의 오픈소스입니다.
 무단복제를 금합니다
