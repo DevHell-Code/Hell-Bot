@@ -14,7 +14,7 @@ import time
 
 a = urllib.request.urlopen("https://dbtest.hminkoo10.repl.co/dburl").read()
 db = replit.Database(a.decode('utf-8'))
-acdb = {}
+acdb = db["account"]
 
 
 # 임배드 함수
@@ -45,18 +45,10 @@ class Acount(commands.Cog):
                                       timeout=30)
         dkdlel = msg.content
         if dkdlel in acdb:
-            await ctx.reply(embed=embed("회원가입 실패", "이미 있는 아이디입니다."))
-            return
-        '''
-        try:
-            for i in dict(acdb).keys():
-                print(i)
-                if ctx.author.id in dict(i)["linkac"]:
-                    await ctx.reply(embed=embed("회원가입 실패", "이미 계정을 소유하고있습니다."))
-                    return
-        except Exception as e:
-            print(e)
-        '''
+            return await ctx.reply(embed=embed("회원가입 실패", "이미 있는 아이디입니다.",discord.Color.red()))
+        for i in acdb.values():
+            if int(i['linkac']) == int(ctx.author.id):
+                return await ctx.reply(embed=embed("회원가입 실패", "현재까지 만들 수 있는 아이디는 계정당 1개입니다.",discord.Color.red()))
         def check(author):
             def inner_check(message):
                 return message.author == author
@@ -78,7 +70,7 @@ class Acount(commands.Cog):
         }
         db["account"] = acdb
         await ctx.reply(embed=embed(
-            "가입 완료", f'가입이 완료되었습니다. 헬월이를 이용해주셔서 감사합니다, {ctx.author}님.'))
+            "가입 완료", f'가입이 완료되었습니다. {self.bot.user.name}(이)를 이용해주셔서 감사합니다, {ctx.author}님.'))
 
 
 def setup(bot):

@@ -5,6 +5,7 @@ import os
 import asyncio
 import random
 import re
+my_secret = os.environ['token-beta']
 from keep_alive import keep_alive
 
 

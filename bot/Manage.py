@@ -29,7 +29,7 @@ class Manage(commands.Cog):
     def __init__(self, bot):
         self.bot = bot
     @commands.command()
-    async def 삭제(self, ctx, *, amount=999999999999999999999):
+    async def 메시지삭제(self, ctx, *, amount=999999999999999999999):
         if ctx.author.guild_permissions.manage_messages:
             try:
                 await ctx.channel.purge(limit=amount)
