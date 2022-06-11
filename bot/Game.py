@@ -42,14 +42,14 @@ def make_image(message):
     # 안에 적은 내용을 파일 이름으로 저장
     image.save("text")
 
-file = open("bot/sentenses_kor.txt", "r")
+file = open("bot/sentences_kor.txt", "r")
 line = file.readlines()
 sentenses_kor = []
 for i in line:
     sentenses_kor.append(i.strip())
 file.close()
 
-file = open("bot/sentenses_eng.txt", "r")
+file = open("bot/sentences_eng.txt", "r")
 line = file.readlines()
 sentenses_eng = []
 for i in line:
