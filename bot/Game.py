@@ -2,10 +2,24 @@ import discord
 from discord.ext import commands
 import os
 import asyncio
+import time
 import random
 import re
 import json
 
+file = open("bot/sentenses_kor.txt", "r")
+line = file.readlines()
+sentenses_kor = []
+for i in line:
+    sentenses_kor.append(i.strip())
+file.close()
+
+file = open("bot/sentenses_eng.txt", "r")
+line = file.readlines()
+sentenses_eng = []
+for i in line:
+    sentenses_eng.append(i.strip())
+file.close()
 
 # 임배드 함수
 def embed(title, description, color=random.randint(0x000000, 0xFFFFFF)):
@@ -58,53 +72,91 @@ class Game(commands.Cog):
             if rsp == '가위':
                 await ctx.reply(embed=embed(
                     '가위바위보',
-                    f'사용자가 낸 것: {rsp} \n 헬월이가 낸 것: {rspchoice} \n 비겼네요!'))
+                    f'사용자가 낸 것: {rsp} \n 봇이 낸 것: {rspchoice} \n 비겼네요!'))
             elif rsp == '바위':
                 await ctx.reply(embed=embed(
                     '가위바위보',
-                    f'사용자가 낸 것: {rsp} \n 헬월이가 낸 것: {rspchoice} \n 제가 졌네요!'))
+                    f'사용자가 낸 것: {rsp} \n 봇이 낸 것: {rspchoice} \n 제가 졌네요!'))
             elif rsp == '보':
                 await ctx.reply(embed=embed(
                     '가위바위보',
-                    f'사용자가 낸 것: {rsp} \n 헬월이가 낸 것: {rspchoice} \n 제가 이겼네요!'))
+                    f'사용자가 낸 것: {rsp} \n 봇이 낸 것: {rspchoice} \n 제가 이겼네요!'))
             else:
                 await ctx.reply(
                     embed=embed('Error in \'가위바위보\'',
-                                '가위, 바위, 보 중 내주세요! 그렇지 않으면 헬월이가 인식하지 못해요 ㅠㅠ'))
+                                '가위, 바위, 보 중 내주세요! 그렇지 않으면 봇이 인식하지 못해요 ㅠㅠ'))
         if rspchoice == '바위':
             if rsp == '가위':
                 await ctx.reply(embed=embed(
                     '가위바위보',
-                    f'사용자가 낸 것: {rsp} \n 헬월이가 낸 것: {rspchoice} \n 제가 이겼네요!'))
+                    f'사용자가 낸 것: {rsp} \n 봇이 낸 것: {rspchoice} \n 제가 이겼네요!'))
             elif rsp == '바위':
                 await ctx.reply(embed=embed(
                     '가위바위보',
-                    f'사용자가 낸 것: {rsp} \n 헬월이가 낸 것: {rspchoice} \n 비겼네요!'))
+                    f'사용자가 낸 것: {rsp} \n 봇이 낸 것: {rspchoice} \n 비겼네요!'))
             elif rsp == '보':
                 await ctx.reply(embed=embed(
                     '가위바위보',
-                    f'사용자가 낸 것: {rsp} \n 헬월이가 낸 것: {rspchoice} \n 제가 졌네요!'))
+                    f'사용자가 낸 것: {rsp} \n 봇이 낸 것: {rspchoice} \n 제가 졌네요!'))
             else:
                 await ctx.reply(
                     embed=embed('Error in \'가위바위보\'',
-                                '가위, 바위, 보 중 내주세요! 그렇지 않으면 헬월이가 인식하지 못해요 ㅠㅠ'))
+                                '가위, 바위, 보 중 내주세요! 그렇지 않으면 봇이 인식하지 못해요 ㅠㅠ'))
         if rspchoice == '보':
             if rsp == '가위':
                 await ctx.reply(embed=embed(
                     '가위바위보',
-                    f'사용자가 낸 것: {rsp} \n 헬월이가 낸 것: {rspchoice} \n 제가 졌네요!'))
+                    f'사용자가 낸 것: {rsp} \n 봇이 낸 것: {rspchoice} \n 제가 졌네요!'))
             elif rsp == '바위':
                 await ctx.reply(embed=embed(
                     '가위바위보',
-                    f'사용자가 낸 것: {rsp} \n 헬월이가 낸 것: {rspchoice} \n 제가 이겼네요!'))
+                    f'사용자가 낸 것: {rsp} \n 봇이 낸 것: {rspchoice} \n 제가 이겼네요!'))
             elif rsp == '보':
                 await ctx.reply(embed=embed(
                     '가위바위보',
-                    f'사용자가 낸 것: {rsp} \n 헬월이가 낸 것: {rspchoice} \n 비겼네요!'))
+                    f'사용자가 낸 것: {rsp} \n 봇이 낸 것: {rspchoice} \n 비겼네요!'))
             else:
                 await ctx.reply(
                     embed=embed('Error in \'가위바위보\'',
-                                '가위, 바위, 보 중 내주세요! 그렇지 않으면 헬월이가 인식하지 못해요 ㅠㅠ'))
+                                '가위, 바위, 보 중 내주세요! 그렇지 않으면 봇이 인식하지 못해요 ㅠㅠ'))
+
+    @commands.command()
+    async def 타자(self, ctx, arg=None):
+        if arg == "영어":
+            q = random.choice(sentenses_eng)
+        elif arg == "한글":
+            q = random.choice(sentenses_kor)
+        elif arg == None:
+            arg = random.choice(["한글","영어"])
+            if arg == "영어":
+                q = random.choice(sentenses_eng)
+            elif arg == "한글":
+                q = random.choice(sentenses_kor)
+        start_time = time.time()
+        await ctx.reply(embed=embed("타자연습 시작",f"다음 문장을 100초 안에 입력해주세요!\n**{q}**"))
+        def check(m):
+            return m.author == ctx.message.author and m.channel == ctx.message.channel
+        try:
+            user_input = await self.bot.wait_for('message', check=check, timeout=100)
+        except asyncio.TimeoutError:
+            return
+        else:
+            pass
+        end_time = time.time() - start_time
+        correct = 0
+    
+        for i,c in enumerate(user_input.content):
+            if i>=len(q):
+                break
+            if c == q[i]:
+                correct +=1
+        total_len = len(q)
+        c = round((correct/total_len*100),2)
+        e = round((total_len - correct)/total_len*100,2)
+        speed = round(int((correct/end_time) *60))
+    
+        await ctx.reply(embed=embed("성공",f"타수 : {speed} 정확도 : {c}% 오타율 : {e}%"))
+        
 
   
 def setup(bot):

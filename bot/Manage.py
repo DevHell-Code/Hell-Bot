@@ -47,7 +47,7 @@ class Manage(commands.Cog):
             return await ctx.reply(embed=embed("타임아웃 실패","필수 요구사항인 **관리자**권한이 없습니다",discord.Color.red()))
         handshake = await timeout_user(bot=self.bot, user_id=user.id, guild_id=ctx.guild.id, until=min)
         if handshake:
-             return await ctx.send(embed=embed("타임아웃 완료",f"{user}님을 {min}분동안 타임아웃 시켰습니다.",discord.Color.green()))
+             return await ctx.reply(embed=embed("타임아웃 완료",f"{user}님을 {min}분동안 타임아웃 시켰습니다.",discord.Color.green()))
     @commands.command()
     async def 타임아웃해제(self, ctx, user:discord.Member):
         if not ctx.author.guild_permissions.administrator:
