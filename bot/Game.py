@@ -159,16 +159,19 @@ class Game(commands.Cog):
     async def 타자(self, ctx, arg=None):
         if arg == "영어":
             q = random.choice(sentenses_eng)
+            H = 350
         elif arg == "한글":
             q = random.choice(sentenses_kor)
+            H = 250
         elif arg == None:
             arg = random.choice(["한글","영어"])
             if arg == "영어":
                 q = random.choice(sentenses_eng)
+                H = 350
             elif arg == "한글":
                 q = random.choice(sentenses_kor)
+                H = 250
         W = 550
-        H = 250
         bg_color = 'rgb(214, 230, 245)'
         
         font = ImageFont.truetype('font.ttf', size=28)
@@ -182,7 +185,10 @@ class Game(commands.Cog):
         
         # Text wraper to handle long text
         # 40자를 넘어갈 경우 여러 줄로 나눔
-        lines = textwrap.wrap(q, width=20)
+        if arg == "한글":
+            lines = textwrap.wrap(q, width=20)
+        elif arg == "영어":
+            lines = textwrap.wrap(q, width=30)
       
         # start position for text
         x_text = 50
