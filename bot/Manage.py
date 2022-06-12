@@ -70,7 +70,7 @@ class Manage(commands.Cog):
         else:
             await ctx.reply(embed=embed("밴 실패","필수 요구사항인 **멤버 밴**권한이 없습니다",discord.Color.red()))
     @commands.command()
-    async def 언밴(self, ctx, user:discord.Member):
+    async def 언밴(self, ctx, user:discord.User):
         if ctx.author.guild_permissions.ban_members:
             await ctx.guild.unban(user)
             await ctx.reply(embed=embed("언밴 성공",f"{user}님을 언밴 했어요!",discord.Color.green()))
