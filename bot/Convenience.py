@@ -6,6 +6,7 @@ import random
 import qrcode
 from PIL import Image
 import requests
+import time
 
 
 # 임배드 함수
@@ -47,7 +48,6 @@ class Convenience(commands.Cog):
         embed.add_field(name="단축 링크", value=f'{output}', inline=False)
         embed.set_footer(text=f"{ctx.author}", icon_url=ctx.author.avatar_url)
         await ctx.reply(embed=embed)
-
 
 def setup(bot):
     bot.add_cog(Convenience(bot))

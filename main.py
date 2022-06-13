@@ -5,6 +5,7 @@ import os
 import asyncio
 import random
 import re
+
 my_secret = os.environ['token-beta']
 from keep_alive import keep_alive
 
@@ -35,12 +36,12 @@ async def on_ready():
         await bot.change_presence(
             status=discord.Status.online,
             activity=discord.Game(
-                name=f"$도움 | {str(len(bot.guilds))}개의 서버와 함께"))
+                name=f"$help | {str(len(bot.guilds))}개의 서버와 함께"))
         await asyncio.sleep(5)
         await bot.change_presence(
             status=discord.Status.online,
             activity=discord.Game(
-                name=f"Ver. INDEV 4.0 | {str(len(bot.guilds))}개의 서버와 함께"))
+                name=f"Ver. Candidate 1 | {str(len(bot.guilds))}개의 서버와 함께"))
         await asyncio.sleep(5)
 
 

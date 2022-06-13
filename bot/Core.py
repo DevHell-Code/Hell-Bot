@@ -20,7 +20,7 @@ class Core(commands.Cog):
     async def 정보(self, ctx):
         await ctx.reply(embed=embed(
             '정보',
-            'Ver. INDEV 4.0 \n Made By Dev HellCode, Github: https://github.com/DevHell-Code/Hell-Bot'
+            'Ver. Candidate 1 \n Made By Dev HellCode, Github: https://github.com/DevHell-Code/Hell-Bot'
         ))
 
     # 크레딧
