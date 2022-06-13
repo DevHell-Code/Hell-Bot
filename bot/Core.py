@@ -27,14 +27,14 @@ class Core(commands.Cog):
     @commands.command()
     async def 크레딧(self, ctx):
         await ctx.reply(embed=embed(
-            '크레딧', 'Dev HellCode \n froggal(KeySpace), hminkoo10(Kongryeong)'))
+            '크레딧', 'Dev HellCode \n froggal(KeySpace), hminkoo10(Kongryeong), yj0524_kr'))
 
     # 연락
     @commands.command()
     async def 연락(self, ctx):
         await ctx.reply(embed=embed(
             '연락처',
-            'Dev HellCode\n`froggal`(KeySpace)에게 연락: `Discord: froggal#2188` \n `Email: keyfroggal21k@hellcode.cf` \n `hyminkoo10`(Kongryeong)에게 연락: `Discord: Kongryeong#5252`\n `Email: kongryeong@hellcode.cf`'
+            'Dev HellCode\n`froggal`(KeySpace)에게 연락: `Discord: froggal#2188` \n `Email: keyfroggal21k@hellcode.cf` \n `hyminkoo10`(Kongryeong)에게 연락: `Discord: Kongryeong#5252`\n `Email: kongryeong@hellcode.cf` \n `yj0524_kr에게 연락: `Discord: yj0524_kr#0113` \n `Email: admin@mushtle.co.kr`'
         ))
 
 
