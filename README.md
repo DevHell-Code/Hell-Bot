@@ -7,7 +7,7 @@
 코드를 사용하시려면 크레딧에 이 깃허브 링크를 남겨주세요!
 
 # 크레딧
-- By DevHell-Code (KeySpace, Kongryeong)
+- By DevHell-Code (KeySpace, Kongryeong, yj0524_kr)
 
 # 연락
 - KeySpace - Discord `froggal#2188` or Email `keyfroggal21k@hellcode.cf`
